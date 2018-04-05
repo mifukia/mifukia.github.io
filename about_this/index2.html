@@ -1,0 +1,92 @@
+<!doctype html>
+<!--[if IE 6]> <html class="ie6"> <![endif]-->
+<!--[if IE 7]> <html class="ie7"> <![endif]-->
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="ja">
+    <!--<![endif]-->
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <!--page info-->
+        <title>Javascriptのthis</title>
+        <meta name="description" content="description1" />
+        <meta name="keywords" content="key1,key1,key1" />
+        <!--og-->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="og_description1" />
+        <meta property="og:site_name" content="" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:description" content="" />
+
+        <!--css-->
+        <link rel="stylesheet" type="text/css" href="assets/css/index.css" media="all" />
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <!--js-->
+
+        <!--[if lt IE 10]>
+        <script type="text/javascript" src="assets/js/plugin/html5shiv.min.js"></script>
+        <script type="text/javascript" src="assets/js/plugin/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="mx-auto text-center">
+                <h1>Javascriptのthis</h1>
+                <p>
+                    アロー関数という一つの答え
+                </p>
+            </div><!-- /.mx-auto -->
+        </div>
+        <div class="container">
+            <div class="catch">
+                <h2>
+                    ＜問題＞
+                </h2>
+                <p>
+                    下記のプログラムを実行した場合、コンソールには何と表示されるでしょうか？
+                </p>
+                <iframe height='350' scrolling='no' title='eMLayK' src='//codepen.io/mifukia/embed/eMLayK/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/mifukia/pen/eMLayK/'>eMLayK</a> by mifukia (<a href='https://codepen.io/mifukia'>@mifukia</a>) on <a href='https://codepen.io'>CodePen</a>.
+                </iframe>
+                <p>
+                    答えは実際にコンソールを開いて確認してみてください。<br>
+                    あなたは正しい答えが導きだせましたか…？
+                </p>
+            </div><!-- /.catch -->
+            <div class="conts">
+                <section>
+                    <h2>
+                        答えという名の問題、或いは問題という名の答え
+                    </h2>
+                    <p>
+                        前頁の問題から、<span>ある一ヶ所</span>だけを<span>変更</span>しております。
+                    </p>
+                    <p class="kotae">
+                        アロー関数は、<strong>関数定義時のコンテキスト（スコープ）のthisを常に参照します。</strong>
+                    </p>
+                    <p>
+                        アロー関数は、<strong>定義された場所によって、関数内部のthisの値を固定します。</strong>
+                    </p>
+                    <div class="last">
+                        <p>
+                            これが、答えです。
+                        </p>
+                        <p>
+                            あなたはアロー関数を使いますか？
+                        </p>
+                    </div><!-- /.last -->
+                </section>
+            </div><!-- /.conts -->
+        </div><!-- /.container -->
+        <script type="text/javascript" src="assets/js/bundle.js"></script>
+
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

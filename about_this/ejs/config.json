@@ -1,0 +1,21 @@
+{
+    "meta":{
+        "title":{
+            "page1":"Javascriptのthis",
+            "page2":"title2"
+        },
+        "description":{
+            "page1":"description1",
+            "page2":"description2"
+        },
+        "keyword":{
+            "page1":"key1,key1,key1",
+            "page2":"key2,key2,key2"
+        },
+        "og_description":{
+            "page1":"og_description1",
+            "page2":"og_description2"
+        }
+    }
+
+}

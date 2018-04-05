@@ -1,0 +1,171 @@
+<!doctype html>
+<!--[if IE 6]> <html class="ie6"> <![endif]-->
+<!--[if IE 7]> <html class="ie7"> <![endif]-->
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="ja">
+    <!--<![endif]-->
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <!--page info-->
+        <title>Javascriptのthis</title>
+        <meta name="description" content="description1" />
+        <meta name="keywords" content="key1,key1,key1" />
+        <!--og-->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="og_description1" />
+        <meta property="og:site_name" content="" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:description" content="" />
+
+        <!--css-->
+        <link rel="stylesheet" type="text/css" href="assets/css/index.css" media="all" />
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <!--js-->
+
+        <!--[if lt IE 10]>
+        <script type="text/javascript" src="assets/js/plugin/html5shiv.min.js"></script>
+        <script type="text/javascript" src="assets/js/plugin/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="mx-auto text-center">
+                <h1>Javascriptのthis</h1>
+            </div><!-- /.mx-auto -->
+        </div>
+        <div class="container">
+            <div class="catch">
+                <h2>
+                    ＜問題＞
+                </h2>
+                <p>
+                    下記のプログラムを実行した場合、コンソールには何と表示されるでしょうか？
+                </p>
+                <iframe height='320' scrolling='no' title='mxGjPm' src='//codepen.io/mifukia/embed/mxGjPm/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/mifukia/pen/mxGjPm/'>mxGjPm</a> by mifukia (<a href='https://codepen.io/mifukia'>@mifukia</a>) on <a href='https://codepen.io'>CodePen</a>.
+                </iframe>
+                <p>
+                    答えは実際にコンソールを開いて確認してみてください。<br>
+                    あなたは正しい答えが導きだせましたか…？
+                </p>
+            </div><!-- /.catch -->
+            <div class="conts">
+                <div class="desc">
+                    <p>
+                        jsのthisには大別すると、4種類のthisが存在する言えます。
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="#sec1">①関数から呼び出した時のthis</a>
+                        </li>
+                        <li>
+                            <a href="#sec2">②メソッドから呼び出した時のthis</a>
+                        </li>
+                        <li>
+                            <a href="#sec3">③コンストラクタから呼び出した時のthis</a>
+                        </li>
+                        <li>
+                            <a href="#sec4">④call、applyから呼び出した時、またはbindした時のthis</a>
+                        </li>
+                    </ul>
+                    <p>
+                        これに加えて、ES6からはアロー関数のthisがあるとも言えます。
+                    </p>
+                </div><!-- /.desc -->
+                <section id="sec1">
+                    <h2>
+                        関数から呼び出した時のthis
+                    </h2>
+                    <p>
+                        <span>ぶっちゃけ</span>こいつがポイントです。<br><br>大体thisで混乱してる時は、こいつの仕様をわかってない時が多い。
+                    </p>
+                    <p>
+                        <strong>関数から呼び出したthisは、グローバルオブジェクトを指します！</strong><br><br>
+                        なんで？って？？<br><br><strong>仕様だよ！！</strong><br><br>
+                        グローバルオブジェクトってなに？って？？<br><br>
+                        <strong>大体windowだよ！！</strong>
+                    </p>
+                    <iframe height='265' scrolling='no' title='rdZqwK' src='//codepen.io/mifukia/embed/rdZqwK/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/mifukia/pen/rdZqwK/'>rdZqwK</a> by mifukia (<a href='https://codepen.io/mifukia'>@mifukia</a>) on <a href='https://codepen.io'>CodePen</a>.
+                    </iframe>
+                </section>
+                <section id="sec2">
+                    <h2>
+                        メソッドから呼び出した時のthis
+                    </h2>
+                    <p>
+                        メソッドから呼び出したthisは、<strong>そのメソッドが属するオブジェクト</strong>を指します！<br>
+                        ちなみに<span>メソッドと関数の違い</span>ってわかりますか？<br>
+                        ざっくりいうと、<br>
+                        <span>
+                           hoge();←こんなのが関数呼び出し<br>hoge.fuga();←こんなのがメソッド呼び出しです。</span><br>
+                        ドット付きで呼び出すやつがメソッドです！いやーわかりやすいですね！
+                    </p>
+                    <p>
+                        これはもう直感的にわかるんじゃないですかね？<br>
+                        だからCODEPENのコードは出しません。地味に面倒だったので。
+                    </p>
+                </section>
+                <section id="sec3">
+                    <h2>
+                        コンストラクタから呼び出した時のthis
+                    </h2>
+                    <p>
+                        コンストラクタから呼び出した時のthisは、<strong>そのコンストラクタが生成したインスタンス</strong>を指します！
+                    </p>
+                    <iframe height='265' scrolling='no' title='JLazzb' src='//codepen.io/mifukia/embed/JLazzb/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/mifukia/pen/JLazzb/'>JLazzb</a> by mifukia (<a href='https://codepen.io/mifukia'>@mifukia</a>) on <a href='https://codepen.io'>CodePen</a>.
+                    </iframe>
+                    <p>
+                        これもまあ説明不要でしょう。<br>
+                        上の例は、プロトタイプを使ってますが、クラスを使った場合も同様です。非常に直感的ですよね？
+                    </p>
+                </section>
+                <section id="sec4">
+                    <h2>
+                        call、applyから呼び出した時、またはbindした時のthis
+                    </h2>
+                    <p>
+                        <span>call</span>メソッド、<span>apply</span>メソッド、<span>bind</span>メソッド。<br>
+                        これらは全て、<strong>thisを「束縛」</strong>するためのメソッドです。
+                    </p>
+                    <p>
+                        そもそも、call、apply、それとbindって知ってますか？<br>つうか使ってますか？<br>非常に便利ですし、<span>束縛</span>って響きに痺れませんか？？
+                    </p>
+                    <iframe height='265' scrolling='no' title='aYaxNJ' src='//codepen.io/mifukia/embed/aYaxNJ/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/mifukia/pen/aYaxNJ/'>aYaxNJ</a> by mifukia (<a href='https://codepen.io/mifukia'>@mifukia</a>) on <a href='https://codepen.io'>CodePen</a>.
+                    </iframe>
+                    <iframe height='350' scrolling='no' title='PRdgKL' src='//codepen.io/mifukia/embed/PRdgKL/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/mifukia/pen/PRdgKL/'>PRdgKL</a> by mifukia (<a href='https://codepen.io/mifukia'>@mifukia</a>) on <a href='https://codepen.io'>CodePen</a>.
+                    </iframe>
+                    <p>
+                        どうでしょう？特に下のsetIntervalのやつなんか、var _this = thisを使ってやるよりカッコよくないですか？？
+                    </p>
+                </section>
+                <section class="sec5">
+                    <h2>
+                        ES6のアロー関数という答え
+                    </h2>
+                    <p>
+                        さて、ここまで読んでくれたみんなはこう思ったかもしれません。<br>
+                        「thisの仕様は大体わかった、でもなんでこんないっぱいあんの？<span>つうか呼び出し方でコロコロ変わるとかマジでなんなの？？</span>」と。<br>
+                    </p>
+                    <p>
+                        わかります。<br>みんなそう思っています。<br>そして当然、jsのえらい人も同じことを考えました。
+                    </p>
+                    <p>
+                        そんな理由で産まれたのが（たぶん）、<strong><a href="index2.html">アロー関数</a></strong>です。
+                    </p>
+
+                </section>
+            </div><!-- /.conts -->
+        </div><!-- /.container -->
+        <script type="text/javascript" src="assets/js/bundle.js"></script>
+
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
